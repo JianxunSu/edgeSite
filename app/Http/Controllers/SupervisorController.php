@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Supervisor;
+
 class SupervisorController extends Controller
 {
-    //TODO show list
-    public function showList()
+    //show list
+    public function index()
     {
+        $supervisors = Supervisor::orderBy('id')->paginate(50);
+        return view('supervisors')->with('supervisors', $supervisors);
+
     }
-    //TODO host a store
-    public function hostStore()
+    //TODO host a supdervisor
+    public function hostsupdervisor()
     {
     }
 }

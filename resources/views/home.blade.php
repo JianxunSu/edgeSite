@@ -5,7 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('stores') }}">List of Stores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('supervisors') }}">
+                  List of Supervisors
+              </a>
+            </li>
+          </ul>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
