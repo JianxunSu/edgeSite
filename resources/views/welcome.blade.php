@@ -8,19 +8,17 @@
                 <div class="panel-heading">List of Stores&Supervisors</div>
 
                     @if(Auth::check())
-                      <!-- Table -->
-                      <table class="table">
-                          <tr>
-                              <th>Character</th>
-                              <th>Real Name</th>
-                          </tr>
-                          @foreach($characters as $key => $value)
-                            <tr>
-                              <td>{{ $key }}</td><td>{{ $value }}</td>
-                            </tr>
-                          @endforeach
-                      </table>
-                    @endif
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('stores') }}">List of Stores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('supervisors') }}">
+                  List of Supervisors
+              </a>
+            </li>
+          </ul>
+            @endif
 
 
             </div>

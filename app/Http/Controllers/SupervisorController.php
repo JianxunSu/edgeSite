@@ -9,12 +9,11 @@ class SupervisorController extends Controller
     //show list
     public function index()
     {
-        $supervisors = Supervisor::orderBy('id')->paginate(50);
+        $supervisors = Supervisor::orderBy('id')->get();
         return view('supervisors')->with('supervisors', $supervisors);
-
     }
-    //TODO host a supdervisor
-    public function hostsupdervisor()
+    //TODO manage a store
+    public function manageStore()
     {
     }
 }
