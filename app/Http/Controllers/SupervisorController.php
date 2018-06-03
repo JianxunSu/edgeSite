@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Store;
 use App\Supervisor;
+use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
 {
@@ -12,8 +14,53 @@ class SupervisorController extends Controller
         $supervisors = Supervisor::orderBy('id')->get();
         return view('supervisors')->with('supervisors', $supervisors);
     }
-    //TODO manage a store
-    public function manageStore()
+
+    /**
+     * Show the form.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function manageSupervisor($id)
     {
+        // get the supervisor
+        $supervisor = Supervisor::find($id);
+        $stores = Store::where('region', 'like', "{$supervisor['region']}")->orderby('name')->get();
+
+        // show the edit form and pass the supervisor
+        return View('supervisorForm')
+            ->with('supervisor', $supervisor)->with('stores', $stores);
     }
+
+    /**
+     * update Store.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateStore(Request $request, $id)
+    {
+        //
+        // var_dump($request->input('store'));
+        // var_dump($id);
+        $supervisor = Supervisor::findOrFail($id);
+        $supervisor->store_id = $request->input('store');
+        $supervisor->timestamps = false;
+        $supervisor->save();
+        return redirect('stores');
+        // exit;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
 }

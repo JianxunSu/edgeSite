@@ -19,5 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/stores', 'StoreController@index')->name('stores');
+// Route::resource('supervisors', 'SupervisorController');
 Route::get('/supervisors', 'SupervisorController@index')->name('supervisors');
-// Route::get('/supervisors', 'SupervisorController@showList')->name('supervisors');
+Route::get('/supervisor_form/{id}', 'SupervisorController@manageSupervisor')->name('supervisor_form');
+Route::post('/update_store/{id}', 'SupervisorController@updateStore')->name('updateStore');

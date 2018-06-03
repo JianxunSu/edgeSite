@@ -8,6 +8,7 @@
           <th>Last Name</th>
           <th>Email</th>
           <th>Region</th>
+          <th>FormLink</th>
       </tr>
       @foreach($supervisors as $supervisor)
       <tr>
@@ -15,6 +16,11 @@
           <td>{{ $supervisor['lastname'] }}</td>
           <td>{{ $supervisor['email'] }}</td>
           <td>{{ $supervisor['region'] }}</td>
+          <td>
+              <a class="nav-link js-scroll-trigger" href="{{ route('supervisor_form',$supervisor['id']) }}">
+                  Register A Store
+              </a>
+          </td>
       </tr>
       @endforeach
    </table>
