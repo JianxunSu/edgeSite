@@ -7,6 +7,11 @@ use DB;
 
 class StoreController extends Controller
 {
+    //Need login to access list info
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // show list
     public function index()
     {

@@ -18,6 +18,8 @@
               </a>
             </li>
           </ul>
+          @if(! empty($errorMessage))<space>{{$errorMessage}}</space>
+          @endif
             @endif
 
 

@@ -21,6 +21,7 @@
       </tr>
       @foreach($supervisors as $supervisor)
       <tr>
+        <strong>
           <td>{{ $supervisor->firstname }}</td>
           <td>{{ $supervisor->lastname }}</td>
           <td>{{ $supervisor->email }}</td>
@@ -33,6 +34,7 @@
                   Register A Store
               </a>
           </td>
+        </strong>
       </tr>
       @endforeach
    </table>
