@@ -2,6 +2,17 @@
 
 @section('content')
 <div class="container">
+   <ul>
+   	    <li>Total Host Stores:{{count(array_filter($stores->all(), function($v) {
+    return $v->type=='Host';
+}))}}</li>
+    <li>Total Surrounding Stores:{{count(array_filter($stores->all(), function($v) {
+    return $v->type=='Surrounding';
+}))}}</li>
+    <li>Total General Stores:{{count(array_filter($stores->all(), function($v) {
+    return $v->type=='General';
+}))}}</li>
+   </ul>
    <table class="table">
       <tr>
           <th>ID</th>
@@ -9,7 +20,7 @@
           <th>Type</th>
           <th>Region</th>
           <th>HostId</th>
-          <th>Distance to Host</th>
+          <th>Distance to Host(Miles)</th>
       </tr>
       @foreach($stores as $store)
       <tr>
