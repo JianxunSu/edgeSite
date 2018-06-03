@@ -4,7 +4,7 @@
 <div class="container">
 	<nav class="navbar navbar-inverse">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="{{ URL::to('supervisors') }}">Supervisor List</a>
+			<a class="navbar-brand" href="{{ URL::to('stores') }}">Stores List</a>
 		</div>
 	</nav>
 	<h1>Welcome, {{ $supervisor->firstname }} {{ $supervisor->lastname }}</h1>

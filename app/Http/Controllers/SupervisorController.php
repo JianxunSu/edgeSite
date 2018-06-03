@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Store;
 use App\Supervisor;
+use DB;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -11,7 +12,11 @@ class SupervisorController extends Controller
     //show list
     public function index()
     {
-        $supervisors = Supervisor::orderBy('id')->get();
+        // $supervisors = Supervisor::orderBy('id')->get();
+        $supervisors = DB::table('supervisor')->leftJoin('store', 'store.id', '=', 'supervisor.store_id')
+            ->select('supervisor.*', 'store.name', 'store.region as storeregion')->
+            orderBy('supervisor.region')->get();
+
         return view('supervisors')->with('supervisors', $supervisors);
     }
 
