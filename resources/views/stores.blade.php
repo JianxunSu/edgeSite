@@ -29,7 +29,7 @@
           <td>{{ $store->type }}</td>
           <td>{{ $store->region }}</td>
           @if(property_exists($store,'hostId'))<td>{{ $store->hostId }}</td>
-          <td>{{ $store->distanceToHost }}</td>@endif
+          <td>{{ number_format($store->distanceToHost,2,'.','') }}</td>@endif
       </tr>
       @endforeach
    </table>
