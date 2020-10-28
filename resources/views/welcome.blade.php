@@ -5,9 +5,8 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-success">
+            @if(Auth::check())
                 <div class="panel-heading">List of Stores&Supervisors</div>
-
-                    @if(Auth::check())
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{{ route('stores') }}">List of Stores</a>
